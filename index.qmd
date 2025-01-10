@@ -1,5 +1,5 @@
 ---
-title: "Nathan Heuver's\ E-Portfolio"
+title: "Nathan Heuver"
 image: images/IMG_3913.jpeg
 about:
   template: trestles
