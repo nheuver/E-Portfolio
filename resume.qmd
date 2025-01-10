@@ -4,37 +4,53 @@ title: "Resume"
 
 # Education
 
--   List your education here. 
+*2024-2025* - **Masters of Geomatics for Environmental Management**, University of British Columbia, BC
 
-# Publications
+Capstone Project: Synthetic Image Generation for Wetland Classification in the Prairie Pothole Region of Canada
 
-*Peer-reviewed publications:*
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-- List any peer-reviewed publications here.
+*2017 – 2021* - **Bachelor of Science (Honours) in Biology**, University of Victoria, BC
 
-*Reports:*
+Degree awarded with distinction
 
-- List any non-peer reviewed materials you'd like to share here.
+Thesis: Spatial, Temporal and Life History Characteristics of Stilt-legged Flies (Micropezidae) on Vancouver Island, Canada
 
-# Conferences & Talks
+# Work Experience
 
-*Invited Talks*
+-   2023 **Monette Farms,** Hafford, Saskatchewan. Tasks included: combine harvester and equipment operation, topography and soil mapping, field improvement and fertilizer application.
 
-- If you've been invited to speak in a professional setting, list that here. 
+-   2022 – 2023 **Twin View Turf**, Wamuran, Australia. Tasks included: operation of tractors and mowers, equipment maintenance, sports field repair and renovation.
 
-*Conference Presentations*
+-   2022 **CABI Europe**, Intern, Arthropod Biological Control Lab, Dr. Tim Haye, Delémont, Switzerland. Study of host-parasitoid interactions for control of agriculture pests. Tasks included: maintenance and rearing of insect colonies, insect and forest sampling, plant infestation experiments
 
-- If the presentation was at a conference, list them here. 
+-   2019, 2020 **Agriteam Services,** Hafford, SK. Tasks included: operation of large farm machinery (Case IH Titan 4540 floater)**,** communication with agronomists and farmers, seed treatment and fertilizer blending.
+
+-   2019 **Agriculture and Agri-Food Canada,** Co-op employment in Dr. Meghan Vankosky Lab, Biological controls and insect pest monitoring and management of legume crops in Central Saskatchewan. Tasks included: extensive field work experience in rural environments, crop damage surveys, insect identification and mounting
+
+-   2013 – 2020 **Eagle Lake Turf Farms**, Strathmore, AB. Tasks included: operation of large farm machinery (John Deere tractors, Volvo loaders), turf maintenance and landscaping, production of custom soil blends.
 
 # Awards & Honors
 
-- List any scholarships, bursaries, etc. 
+-   2021 Dean’s List; Graduating Class
+-   2020 - VNHS Freeman F. King Scholarship (\$1,080 CAD)
+-   2020 - Bob Wright Scholarship (\$5,000 CAD)
+-   2020 - Dr. Henry W. Indyk Scholarship (\$10,000 USD)
+-   2020 - RISE Germany Mitacs Scholarship (\$6,000 CAD)
+-   2017 - UVic Entrance Scholarship (\$1,500 CAD)
 
+# Certifications
 
-# Teaching Assistantships
+-   Standard First Aid (CPR-C)
+-   PAL non-restricted
+-   Search and Rescue Basics
+-   Avalanche Skills Training 1
+-   ICS 100
 
-- List any TA positions you may have held. 
+# Activities
 
-# Institutional Service
-
-- Volunteering etc. 
+-   Road race running (Marathon, Half-marathon, 10k)
+-   Birding (over 1500 species observed worldwide)
+-   Travel (Two years spent backpacking between undergrad and masters)
+-   Sea kayaking (week long trips off Vancouver Island)
+-   Skiing (resort and backcountry)

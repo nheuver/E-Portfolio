@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: C:/Users/melser/Documents/GitHub/E-Portfolio
+  output-dir: /Users/nathanheuver/Library/CloudStorage/OneDrive-UBC/Desktop/School/FCOR_599/eportfolio/E-Portfolio
 
 website:
   title: "Your E-Portfolio"
