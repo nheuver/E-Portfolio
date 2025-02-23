@@ -17,18 +17,42 @@ The capstone project for my Masters focused on creating synthetic imagery of fen
 Sample leaflet - for detailed leaflet instructions, visit the FCOR 599 workshop archive page [here](https://ubc-mgem-fcor599.github.io/FCOR-599-Workshops/Interactive_Maps/leaflet.html).
 
 ```{r leaflet, include = FALSE}
-library(dplyr); library(leaflet)
+library(dplyr); library(leaflet); library(sf); library(raster); library(leafem)
+
+ # Load raster (modify path accordingly)
+raster_path <- "layers/tile_23_downscale.tif"
+raster_data <- stack(raster_path)
+
+fen_path <- "layers/fens(23)_dissolve.shp"
+fen_data <- st_read(fen_path)
+
 
 m <- leaflet() %>%
-  addProviderTiles("Esri.WorldImagery") %>%
+  addProviderTiles(providers$Esri.WorldTopoMap) %>%
+  
+    # Add Raster Layer
+  addRasterRGB(raster_data
+               ) %>%
+  
+    # Add Shapefile Layer
+  addPolygons(
+    data = fen_data,
+    color = "blue") %>%
+  
   addScaleBar(position = c("bottomleft")) %>%
-  setView(-123.1207, 49.2827, zoom = 11)
+  setView(-103.03625, 52.11744, zoom = 12.5)
 
 ```
 
 ```{r map, echo=FALSE}
-m
+
+#m
+plotRGB(raster_data)
+plot(fen_data, add = TRUE)
+
+
 ```
+
 
 ## Code Snippets
 
