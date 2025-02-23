@@ -4,53 +4,42 @@ title: "Resume"
 
 # Education
 
-*2024-2025* - **Masters of Geomatics for Environmental Management**, University of British Columbia, BC
-
-Capstone Project: Synthetic Image Generation for Wetland Classification in the Prairie Pothole Region of Canada
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+*2024 - 2025* - **Masters of Geomatics for Environmental Management**, University of British Columbia, BC
 
 *2017 – 2021* - **Bachelor of Science (Honours) in Biology**, University of Victoria, BC
 
-Degree awarded with distinction
+# Relvent Experience
 
-Thesis: Spatial, Temporal and Life History Characteristics of Stilt-legged Flies (Micropezidae) on Vancouver Island, Canada
+-   *2023* - Mapping Technician/Operator - **Monette Farms,** Hafford, Saskatchewan.
+    -   Soil salinity mapping, Digital Elevation Model (DEM) creation using RTK, agronomy, equipment operation
+-   *2022* **-** Intern - **CABI Europe**, Delémont, Switzerland.
+    -   Study of host-parasitoid interactions for control of agriculture pests, insect and forest sampling, plant infestation experiments, insect rearing.
+-   *2019 – 2020* - Work-study Student - **Dr. Julia Baum Lab, University of Victoria**.
+    -   Photointerpretation, change detection, digital photogrammetry/SfM.
+-   *2019* - Co-op Student - **Agriculture Canada,** Saskatoon, Saskatchewan.
+    -   Insect pest and crop sampling, rural field work, insect pest modeling
 
-# Work Experience
+# Technical Skills
 
--   2023 **Monette Farms,** Hafford, Saskatchewan. Tasks included: combine harvester and equipment operation, topography and soil mapping, field improvement and fertilizer application.
-
--   2022 – 2023 **Twin View Turf**, Wamuran, Australia. Tasks included: operation of tractors and mowers, equipment maintenance, sports field repair and renovation.
-
--   2022 **CABI Europe**, Intern, Arthropod Biological Control Lab, Dr. Tim Haye, Delémont, Switzerland. Study of host-parasitoid interactions for control of agriculture pests. Tasks included: maintenance and rearing of insect colonies, insect and forest sampling, plant infestation experiments
-
--   2019, 2020 **Agriteam Services,** Hafford, SK. Tasks included: operation of large farm machinery (Case IH Titan 4540 floater)**,** communication with agronomists and farmers, seed treatment and fertilizer blending.
-
--   2019 **Agriculture and Agri-Food Canada,** Co-op employment in Dr. Meghan Vankosky Lab, Biological controls and insect pest monitoring and management of legume crops in Central Saskatchewan. Tasks included: extensive field work experience in rural environments, crop damage surveys, insect identification and mounting
-
--   2013 – 2020 **Eagle Lake Turf Farms**, Strathmore, AB. Tasks included: operation of large farm machinery (John Deere tractors, Volvo loaders), turf maintenance and landscaping, production of custom soil blends.
+-   GIS Software: ArcGIS Pro, QGIS
+-   Programing languages: Python (Arcpy, rasterio, geopandas libraries), R (tidyverse, terra, sf and lidR packages)
+-   Data visualization: ggplot2, Matplotlib, Seaborn, R Markdown
+-   Other tools: SQL, database management, FME, GPS and RTK field data collection tools
 
 # Awards & Honors
 
--   2021 Dean’s List; Graduating Class
--   2020 - VNHS Freeman F. King Scholarship (\$1,080 CAD)
--   2020 - Bob Wright Scholarship (\$5,000 CAD)
--   2020 - Dr. Henry W. Indyk Scholarship (\$10,000 USD)
--   2020 - RISE Germany Mitacs Scholarship (\$6,000 CAD)
--   2017 - UVic Entrance Scholarship (\$1,500 CAD)
+-   *2021* - Dean’s List; Graduating Class
+-   *2020* - VNHS Freeman F. King Scholarship (\$1,080 CAD)
+-   *2020* - Bob Wright Scholarship (\$5,000 CAD)
+-   *2020* - Dr. Henry W. Indyk Scholarship (\$10,000 USD)
+-   *2020* - RISE Germany Mitacs Scholarship (\$6,000 CAD)
+-   *2017* - UVic Entrance Scholarship (\$1,500 CAD)
 
-# Certifications
+# Other Experience
 
--   Standard First Aid (CPR-C)
--   PAL non-restricted
--   Search and Rescue Basics
--   Avalanche Skills Training 1
--   ICS 100
+-   *2024* - Greenskeeper - **Victoria Golf Club,** Victoria, BC.
+-   *2022* – 2023  - Farm Hand - **Twin View Turf**, Wamuran, Australia.
+-   *2019,   2020*  - Equipment Operator - **Agriteam Services,** Hafford, SK.
+-   *2013 – 2020*  - Farm Hand - **Eagle Lake Turf Farms**, Strathmore, AB.
 
-# Activities
-
--   Road race running (Marathon, Half-marathon, 10k)
--   Birding (over 1500 species observed worldwide)
--   Travel (Two years spent backpacking between undergrad and masters)
--   Sea kayaking (week long trips off Vancouver Island)
--   Skiing (resort and backcountry)
+# 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Content &amp; Deliverables – Your E-Portfolio</title>
+<title>Sample Work – Nathan Heuver’s E-Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,29 +67,17 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-
 <link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-
 <script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
-
 <link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-
 <script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
-
 <script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-
 <link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-
 <script src="site_libs/leaflet-binding-2.2.2/leaflet.js"></script>
-
 <script src="site_libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-
 <script src="site_libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
-
 
 
 <link rel="stylesheet" href="styles.css">
@@ -103,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Your E-Portfolio</span>
+    <span class="navbar-title">Nathan Heuver’s E-Portfolio</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -121,12 +109,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
-<span class="menu-text">Publications</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./content.html" aria-current="page"> 
-<span class="menu-text">Content &amp; Deliverables</span></a>
+<span class="menu-text">Sample Work</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -144,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#project-1---capstone-deliverables" id="toc-project-1---capstone-deliverables" class="nav-link active" data-scroll-target="#project-1---capstone-deliverables">Project 1 - Capstone Deliverables</a>
+  <li><a href="#mgem-capstone" id="toc-mgem-capstone" class="nav-link active" data-scroll-target="#mgem-capstone">MGEM Capstone</a>
   <ul class="collapse">
   <li><a href="#leaflet" id="toc-leaflet" class="nav-link" data-scroll-target="#leaflet">Leaflet</a></li>
   <li><a href="#code-snippets" id="toc-code-snippets" class="nav-link" data-scroll-target="#code-snippets">Code Snippets</a></li>
@@ -158,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Content &amp; Deliverables</h1>
+<h1 class="title">Sample Work</h1>
 </div>
 
 
@@ -175,17 +159,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="project-1---capstone-deliverables" class="level1">
-<h1>Project 1 - Capstone Deliverables</h1>
-<p>This is a sample page where you can archive project deliverables. Every header you use will correspond to a tab in the legend - shown on the right-hand side of your screen (“On this page”).</p>
-<p>If you’ve produced any GIS layers for your 599 project, this may be a good place to share them as interactive maps through leaflet. Alternatively, you can upload high-res figures showing correlations, box-plots, etc. from your report here, and provide a brief overview of key project results. If you have written some useful functions, you may also want to share those here to demonstrate proficiency in particular coding languages or synergies between notable coding packages.</p>
+<section id="mgem-capstone" class="level1">
+<h1>MGEM Capstone</h1>
+<p>The capstone project for my Masters focused on creating synthetic imagery of fens using deep learning to increase the amount of training data for a landscape classification model. Fens are a relatively rare form of wetlands, and therefore training data is limited. Using the deep learning tools in ArcGIS, I was able to create synthetic images of fens that approximated the characteristics of real fen imagery.</p>
+<p><img src="images/figure1.png" class="img-fluid"></p>
+<p><strong>Figure 1.</strong> Real training images representing marshes (A, B, C) and synthetically created images representing fens (D, E, F) from the CycleGAN model. Using the CycleGAN deep learning framework in ArcGIS, style transfer was accomplished to create synthetic fen imagery from imagery of marshes.</p>
 <section id="leaflet" class="level2">
 <h2 class="anchored" data-anchor-id="leaflet">Leaflet</h2>
 <p>Sample leaflet - for detailed leaflet instructions, visit the FCOR 599 workshop archive page <a href="https://ubc-mgem-fcor599.github.io/FCOR-599-Workshops/Interactive_Maps/leaflet.html">here</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-f00a005b1c208c05674a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-f00a005b1c208c05674a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"setView":[[49.2827,-123.1207],11,[]]},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-3f39816740eb3d688557" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3f39816740eb3d688557">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"setView":[[49.2827,-123.1207],11,[]]},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
