@@ -75,5 +75,89 @@
     "title": "Sample Work",
     "section": "Code Output",
     "text": "Code Output\n\nEntropy T-tests:\nBand 1 - t-statistic: -9.7605, p-value: 0.0000\nBand 2 - t-statistic: -11.8979, p-value: 0.0000\nBand 3 - t-statistic: -15.6903, p-value: 0.0000\nBand 4 - t-statistic: -6.6893, p-value: 0.0000"
+  },
+  {
+    "objectID": "content.html#study-area",
+    "href": "content.html#study-area",
+    "title": "Sample Work",
+    "section": "Study Area",
+    "text": "Study Area\nThe data for my project came from classified imagery of wetlands in the Prairie Pothole Region of Canada. The following figure represents the training data for my CycleGAN model."
+  },
+  {
+    "objectID": "content.html#cartography",
+    "href": "content.html#cartography",
+    "title": "Sample Work",
+    "section": "Cartography",
+    "text": "Cartography\nDuring the MGEM program I also gained experience doing GIS analysis and creating captivating maps. Here are a few samples of my maps:"
+  },
+  {
+    "objectID": "samplework.html",
+    "href": "samplework.html",
+    "title": "Sample Work",
+    "section": "",
+    "text": "The capstone project for my Masters focused on creating synthetic imagery of fens using deep learning to increase the amount of training data for a landscape classification model. Fens are a relatively rare form of wetlands, and therefore training data is limited. Using the deep learning tools in ArcGIS, I was able to create synthetic images of fens that approximated the characteristics of real fen imagery.\n\nFigure 1. Real training images representing marshes (A, B, C) and synthetically created images representing fens (D, E, F) from the CycleGAN model. Using the CycleGAN deep learning framework in ArcGIS, style transfer was accomplished to create synthetic fen imagery from imagery of marshes."
+  },
+  {
+    "objectID": "samplework.html#mgem-capstone",
+    "href": "samplework.html#mgem-capstone",
+    "title": "Sample Work",
+    "section": "",
+    "text": "The capstone project for my Masters focused on creating synthetic imagery of fens using deep learning to increase the amount of training data for a landscape classification model. Fens are a relatively rare form of wetlands, and therefore training data is limited. Using the deep learning tools in ArcGIS, I was able to create synthetic images of fens that approximated the characteristics of real fen imagery.\n\nFigure 1. Real training images representing marshes (A, B, C) and synthetically created images representing fens (D, E, F) from the CycleGAN model. Using the CycleGAN deep learning framework in ArcGIS, style transfer was accomplished to create synthetic fen imagery from imagery of marshes."
+  },
+  {
+    "objectID": "samplework.html#study-area",
+    "href": "samplework.html#study-area",
+    "title": "Sample Work",
+    "section": "Study Area",
+    "text": "Study Area\nThe data for my project came from classified imagery of wetlands in the Prairie Pothole Region of Canada. The following figure represents the training data for my CycleGAN model."
+  },
+  {
+    "objectID": "samplework.html#code-snippets",
+    "href": "samplework.html#code-snippets",
+    "title": "Sample Work",
+    "section": "Code Snippets",
+    "text": "Code Snippets\nFor my project I calculated statistics for the real and synthetic images. One metric used to quantify differences between real and synthetic images was entropy, a measure of the randomness present in images. These are some functions I wrote to plot histograms of image entropy and preform a t-test between the real and synthetic images.\n\nPythonR\n\n\ndef compute_entropy(image_band, bins=256):\n    \"\"\"Compute entropy of an image band.\"\"\"\n    hist, _ = np.histogram(image_band.flatten(), bins=bins, density=True)\n    hist += 1e-10  # Avoid zero probabilities\n    return entropy(hist)\n\ndef entropy_ttest(real_folder, synthetic_folder):\n    \"\"\"Compute entropy for each image band and perform t-test between real and synthetic images.\"\"\"\n    real_images = load_images(real_folder)\n    synthetic_images = load_images(synthetic_folder)\n    \n    num_bands = real_images[0].shape[0]\n    entropy_results = {f'Band {b+1}': {'real': [], 'synthetic': []} for b in range(num_bands)}\n    \n    for real_img, synth_img in zip(real_images, synthetic_images):\n        real_img = remove_zeros(real_img)\n        synth_img = remove_zeros(synth_img)\n        \n        for band in range(num_bands):\n            real_entropy = compute_entropy(real_img[band])\n            synthetic_entropy = compute_entropy(synth_img[band])\n            entropy_results[f'Band {band+1}']['real'].append(real_entropy)\n            entropy_results[f'Band {band+1}']['synthetic'].append(synthetic_entropy)\n    \n    ttest_results = {}\n    for band, values in entropy_results.items():\n        t_stat, p_value = ttest_ind(values['real'], values['synthetic'])\n        ttest_results[band] = {'t_stat': t_stat, 'p_value': p_value}\n        print(f\"{band} - t-statistic: {t_stat:.4f}, p-value: {p_value:.4f}\")\n\n    # Plot histograms of entropy for real and synthetic images\n    for band in range(num_bands):\n        plt.figure(figsize=(8, 6))\n        \n        plt.hist(entropy_results[f'Band {band+1}']['real'], bins=30, alpha=0.5, label='Real', color='blue')\n        plt.hist(entropy_results[f'Band {band+1}']['synthetic'], bins=30, alpha=0.5, label='Synthetic', color='red')\n        \n        #plt.title(f'Band {band+1} Entropy Histogram')\n        plt.xlabel('Entropy')\n        plt.ylabel('Frequency')\n        plt.xlim(0, 6)\n        plt.ylim(0, 30)\n        plt.legend()\n        plt.show()\n    \n    # Plot boxplots of entropy for real and synthetic images\n    for band in range(num_bands):\n        plt.figure(figsize=(6, 6))\n        \n        data = [entropy_results[f'Band {band+1}']['real'], entropy_results[f'Band {band+1}']['synthetic']]\n        plt.boxplot(data, tick_labels=['Real', 'Synthetic'])\n        \n        #plt.title(f'Band {band+1} Entropy Boxplot')\n        plt.ylabel('Entropy')\n        plt.show()\n        \n    return ttest_results\n\n\ncompute_entropy &lt;- function(image_band, bins = 256) {\n  hist_vals &lt;- hist(image_band[], breaks = bins, plot = FALSE)$density\n  hist_vals &lt;- hist_vals + 1e-10  # Avoid zero probabilities\n  return(Entropy(hist_vals, method = \"ML\"))\n}\n\nentropy_ttest &lt;- function(real_folder, synthetic_folder) {\n  real_files &lt;- list.files(real_folder, full.names = TRUE)\n  synthetic_files &lt;- list.files(synthetic_folder, full.names = TRUE)\n  \n  if (length(real_files) != length(synthetic_files)) {\n    stop(\"Mismatch in dataset sizes\")\n  }\n  \n  real_rasters &lt;- lapply(real_files, raster::stack)\n  synthetic_rasters &lt;- lapply(synthetic_files, raster::stack)\n  \n  num_bands &lt;- nlayers(real_rasters[[1]])\n  entropy_results &lt;- vector(\"list\", num_bands)\n  names(entropy_results) &lt;- paste(\"Band\", 1:num_bands)\n  \n  for (b in 1:num_bands) {\n    entropy_results[[b]] &lt;- list(real = c(), synthetic = c())\n    for (i in seq_along(real_rasters)) {\n      real_band &lt;- real_rasters[[i]][[b]]\n      synthetic_band &lt;- synthetic_rasters[[i]][[b]]\n      \n      real_band &lt;- real_band[real_band != 0]  # Remove zeros\n      synthetic_band &lt;- synthetic_band[synthetic_band != 0]\n      \n      real_entropy &lt;- compute_entropy(real_band)\n      synthetic_entropy &lt;- compute_entropy(synthetic_band)\n      \n      entropy_results[[b]]$real &lt;- c(entropy_results[[b]]$real, real_entropy)\n      entropy_results[[b]]$synthetic &lt;- c(entropy_results[[b]]$synthetic, synthetic_entropy)\n    }\n  }\n  \n  ttest_results &lt;- list()\n  for (b in 1:num_bands) {\n    t_result &lt;- t.test(entropy_results[[b]]$real, entropy_results[[b]]$synthetic)\n    ttest_results[[paste(\"Band\", b)]] &lt;- list(t_stat = t_result$statistic, p_value = t_result$p.value)\n    cat(sprintf(\"Band %d - t-statistic: %.4f, p-value: %.4f\\n\", b, t_result$statistic, t_result$p.value))\n  }\n  \n  for (b in 1:num_bands) {\n    entropy_df &lt;- data.frame(\n      Entropy = c(entropy_results[[b]]$real, entropy_results[[b]]$synthetic),\n      Type = rep(c(\"Real\", \"Synthetic\"), each = length(entropy_results[[b]]$real))\n    )\n    \n    ggplot(entropy_df, aes(x = Entropy, fill = Type)) +\n      geom_histogram(alpha = 0.5, position = \"identity\", bins = 30) +\n      labs(title = paste(\"Band\", b, \"Entropy Histogram\"), x = \"Entropy\", y = \"Frequency\") +\n      theme_minimal() +\n      theme(legend.position = \"top\")\n  }\n  \n  for (b in 1:num_bands) {\n    entropy_df &lt;- data.frame(\n      Entropy = c(entropy_results[[b]]$real, entropy_results[[b]]$synthetic),\n      Type = rep(c(\"Real\", \"Synthetic\"), each = length(entropy_results[[b]]$real))\n    )\n    \n    ggplot(entropy_df, aes(x = Type, y = Entropy, fill = Type)) +\n      geom_boxplot() +\n      labs(title = paste(\"Band\", b, \"Entropy Boxplot\"), y = \"Entropy\") +\n      theme_minimal()\n  }\n  \n  return(ttest_results)\n}"
+  },
+  {
+    "objectID": "samplework.html#code-output",
+    "href": "samplework.html#code-output",
+    "title": "Sample Work",
+    "section": "Code Output",
+    "text": "Code Output\n\nEntropy T-tests:\nBand 1 - t-statistic: -9.7605, p-value: 0.0000\nBand 2 - t-statistic: -11.8979, p-value: 0.0000\nBand 3 - t-statistic: -15.6903, p-value: 0.0000\nBand 4 - t-statistic: -6.6893, p-value: 0.0000"
+  },
+  {
+    "objectID": "samplework.html#cartography",
+    "href": "samplework.html#cartography",
+    "title": "Sample Work",
+    "section": "Cartography",
+    "text": "Cartography\nDuring the MGEM program I also gained experience doing GIS analysis and creating captivating maps. Here are a few samples of my maps:"
+  },
+  {
+    "objectID": "pics.html",
+    "href": "pics.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Peer-reviewed publications:\nDespite listing them on your resume, it may also be pertinent to create a seperate tab for publications and reports. As your career progresses, this list may become quite long, so be sure to organize things. You may want to point to ‘most recent’ publications, or categorize things by project/topic."
+  },
+  {
+    "objectID": "pics.html#monette-farms",
+    "href": "pics.html#monette-farms",
+    "title": "Photo Resume",
+    "section": "Monette Farms",
+    "text": "Monette Farms"
+  },
+  {
+    "objectID": "pics.html#twin-view-turf",
+    "href": "pics.html#twin-view-turf",
+    "title": "Photo Resume",
+    "section": "Twin View Turf",
+    "text": "Twin View Turf"
+  },
+  {
+    "objectID": "pics.html#cabi-europe",
+    "href": "pics.html#cabi-europe",
+    "title": "Photo Resume",
+    "section": "CABI Europe",
+    "text": "CABI Europe"
   }
 ]

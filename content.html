@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./content.html" aria-current="page"> 
+    <a class="nav-link" href="./samplework.qmd"> 
 <span class="menu-text">Sample Work</span></a>
   </li>  
 </ul>
@@ -117,10 +117,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#mgem-capstone" id="toc-mgem-capstone" class="nav-link active" data-scroll-target="#mgem-capstone">MGEM Capstone</a></li>
-  <li><a href="#leaflet" id="toc-leaflet" class="nav-link" data-scroll-target="#leaflet">Leaflet</a></li>
+  <li><a href="#study-area" id="toc-study-area" class="nav-link" data-scroll-target="#study-area">Study Area</a></li>
   <li><a href="#code-snippets" id="toc-code-snippets" class="nav-link" data-scroll-target="#code-snippets">Code Snippets</a></li>
   <li><a href="#code-output" id="toc-code-output" class="nav-link" data-scroll-target="#code-output">Code Output</a></li>
-  <li><a href="#external-links" id="toc-external-links" class="nav-link" data-scroll-target="#external-links">External links</a></li>
+  <li><a href="#cartography" id="toc-cartography" class="nav-link" data-scroll-target="#cartography">Cartography</a></li>
   </ul>
 </nav>
     </div>
@@ -152,21 +152,10 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/figure1.png" class="img-fluid"></p>
 <p><strong>Figure 1.</strong> Real training images representing marshes (A, B, C) and synthetically created images representing fens (D, E, F) from the CycleGAN model. Using the CycleGAN deep learning framework in ArcGIS, style transfer was accomplished to create synthetic fen imagery from imagery of marshes.</p>
 </section>
-<section id="leaflet" class="level2">
-<h2 class="anchored" data-anchor-id="leaflet">Leaflet</h2>
-<p>Sample leaflet - for detailed leaflet instructions, visit the FCOR 599 workshop archive page <a href="https://ubc-mgem-fcor599.github.io/FCOR-599-Workshops/Interactive_Maps/leaflet.html">here</a>.</p>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in plot.sf(fen_data, add = TRUE): ignoring all but the first attribute</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="content_files/figure-html/map-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="study-area" class="level2">
+<h2 class="anchored" data-anchor-id="study-area">Study Area</h2>
+<p>The data for my project came from classified imagery of wetlands in the Prairie Pothole Region of Canada. The following figure represents the training data for my CycleGAN model.</p>
+<p><img src="images/study_site.png" class="img-fluid"></p>
 </section>
 <section id="code-snippets" class="level2">
 <h2 class="anchored" data-anchor-id="code-snippets">Code Snippets</h2>
@@ -319,11 +308,10 @@ Band 2 - t-statistic: -11.8979, p-value: 0.0000
 Band 3 - t-statistic: -15.6903, p-value: 0.0000
 Band 4 - t-statistic: -6.6893, p-value: 0.0000</code></pre>
 </section>
-<section id="external-links" class="level2">
-<h2 class="anchored" data-anchor-id="external-links">External links</h2>
-<p>You can also provide a frame linking to external websites. For example, here is a link to a Google Earth Engine application I developed. The full-screen GEE application is available <a href="https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool">here</a> in case you’re interested.</p>
-<p>(To use the GEE tool, navigate to any city you’d like, hit apply filters, and click anywhere on the map to retrieve a time-series of Landsat surface temperature observations for that point. Areas where the maximum temp exceeded 35 degrees Celsius in your date-range are highlighted in red.)</p>
-<iframe width="900" height="700" src="https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool" title="Webpage example"></iframe>
+<section id="cartography" class="level2">
+<h2 class="anchored" data-anchor-id="cartography">Cartography</h2>
+<p>During the MGEM program I also gained experience doing GIS analysis and creating captivating maps. Here are a few samples of my maps:</p>
+<p><img src="images/cost_map.png" class="img-fluid"> <img src="images/streams.png" class="img-fluid"> <img src="images/streams2.png" class="img-fluid"></p>
 
 
 </section>

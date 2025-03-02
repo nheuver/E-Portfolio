@@ -10,8 +10,11 @@ website:
         text: Home
       - href: resume.qmd
         text: Resume
-      - href: content.qmd
+      - href: samplework.qmd
         text: Sample Work
+      - href: pics.qmd
+        text: Photo Resume
+
 
 format:
   html:
