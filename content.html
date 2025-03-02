@@ -116,12 +116,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mgem-capstone" id="toc-mgem-capstone" class="nav-link active" data-scroll-target="#mgem-capstone">MGEM Capstone</a>
-  <ul class="collapse">
+  <li><a href="#mgem-capstone" id="toc-mgem-capstone" class="nav-link active" data-scroll-target="#mgem-capstone">MGEM Capstone</a></li>
   <li><a href="#leaflet" id="toc-leaflet" class="nav-link" data-scroll-target="#leaflet">Leaflet</a></li>
   <li><a href="#code-snippets" id="toc-code-snippets" class="nav-link" data-scroll-target="#code-snippets">Code Snippets</a></li>
+  <li><a href="#code-output" id="toc-code-output" class="nav-link" data-scroll-target="#code-output">Code Output</a></li>
   <li><a href="#external-links" id="toc-external-links" class="nav-link" data-scroll-target="#external-links">External links</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -147,11 +146,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="mgem-capstone" class="level1">
-<h1>MGEM Capstone</h1>
+<section id="mgem-capstone" class="level2">
+<h2 class="anchored" data-anchor-id="mgem-capstone">MGEM Capstone</h2>
 <p>The capstone project for my Masters focused on creating synthetic imagery of fens using deep learning to increase the amount of training data for a landscape classification model. Fens are a relatively rare form of wetlands, and therefore training data is limited. Using the deep learning tools in ArcGIS, I was able to create synthetic images of fens that approximated the characteristics of real fen imagery.</p>
 <p><img src="images/figure1.png" class="img-fluid"></p>
 <p><strong>Figure 1.</strong> Real training images representing marshes (A, B, C) and synthetically created images representing fens (D, E, F) from the CycleGAN model. Using the CycleGAN deep learning framework in ArcGIS, style transfer was accomplished to create synthetic fen imagery from imagery of marshes.</p>
+</section>
 <section id="leaflet" class="level2">
 <h2 class="anchored" data-anchor-id="leaflet">Leaflet</h2>
 <p>Sample leaflet - for detailed leaflet instructions, visit the FCOR 599 workshop archive page <a href="https://ubc-mgem-fcor599.github.io/FCOR-599-Workshops/Interactive_Maps/leaflet.html">here</a>.</p>
@@ -170,20 +170,154 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="code-snippets" class="level2">
 <h2 class="anchored" data-anchor-id="code-snippets">Code Snippets</h2>
-<p>Sample code snippet. Notice that you can provide a toggle to switch between coding languages - this is referred to as a ‘tabset’ in quarto. It is good practice to try and convert your R code to python, and vice-versa to demonstrate coding proficiency. For example, let’s showcase a function for calculating NDVI in R and Python.</p>
+<p>For my project I calculated statistics for the real and synthetic images. One metric used to quantify differences between real and synthetic images was entropy, a measure of the randomness present in images. These are some functions I wrote to plot histograms of image entropy and preform a t-test between the real and synthetic images.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">R</a></li></ul>
 <div class="tab-content" data-group="language">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<pre class="(.r)"><code>calc_ndvi &lt;- function(nir, red){ ndvi &lt;- (nir-red)/(nir+red) return(ndvi) }</code></pre>
+<pre class="(.python)"><code>def compute_entropy(image_band, bins=256):
+    """Compute entropy of an image band."""
+    hist, _ = np.histogram(image_band.flatten(), bins=bins, density=True)
+    hist += 1e-10  # Avoid zero probabilities
+    return entropy(hist)
+
+def entropy_ttest(real_folder, synthetic_folder):
+    """Compute entropy for each image band and perform t-test between real and synthetic images."""
+    real_images = load_images(real_folder)
+    synthetic_images = load_images(synthetic_folder)
+    
+    num_bands = real_images[0].shape[0]
+    entropy_results = {f'Band {b+1}': {'real': [], 'synthetic': []} for b in range(num_bands)}
+    
+    for real_img, synth_img in zip(real_images, synthetic_images):
+        real_img = remove_zeros(real_img)
+        synth_img = remove_zeros(synth_img)
+        
+        for band in range(num_bands):
+            real_entropy = compute_entropy(real_img[band])
+            synthetic_entropy = compute_entropy(synth_img[band])
+            entropy_results[f'Band {band+1}']['real'].append(real_entropy)
+            entropy_results[f'Band {band+1}']['synthetic'].append(synthetic_entropy)
+    
+    ttest_results = {}
+    for band, values in entropy_results.items():
+        t_stat, p_value = ttest_ind(values['real'], values['synthetic'])
+        ttest_results[band] = {'t_stat': t_stat, 'p_value': p_value}
+        print(f"{band} - t-statistic: {t_stat:.4f}, p-value: {p_value:.4f}")
+
+    # Plot histograms of entropy for real and synthetic images
+    for band in range(num_bands):
+        plt.figure(figsize=(8, 6))
+        
+        plt.hist(entropy_results[f'Band {band+1}']['real'], bins=30, alpha=0.5, label='Real', color='blue')
+        plt.hist(entropy_results[f'Band {band+1}']['synthetic'], bins=30, alpha=0.5, label='Synthetic', color='red')
+        
+        #plt.title(f'Band {band+1} Entropy Histogram')
+        plt.xlabel('Entropy')
+        plt.ylabel('Frequency')
+        plt.xlim(0, 6)
+        plt.ylim(0, 30)
+        plt.legend()
+        plt.show()
+    
+    # Plot boxplots of entropy for real and synthetic images
+    for band in range(num_bands):
+        plt.figure(figsize=(6, 6))
+        
+        data = [entropy_results[f'Band {band+1}']['real'], entropy_results[f'Band {band+1}']['synthetic']]
+        plt.boxplot(data, tick_labels=['Real', 'Synthetic'])
+        
+        #plt.title(f'Band {band+1} Entropy Boxplot')
+        plt.ylabel('Entropy')
+        plt.show()
+        
+    return ttest_results</code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<pre class="(.python)"><code>def calc_ndvi(nir, red): 
-  ndvi = (nir.astype(float)-red.astype(float))/(nir.astype(float)+red.astype(float))
-  return(ndvi)</code></pre>
+<pre class="(.r)"><code>compute_entropy &lt;- function(image_band, bins = 256) {
+  hist_vals &lt;- hist(image_band[], breaks = bins, plot = FALSE)$density
+  hist_vals &lt;- hist_vals + 1e-10  # Avoid zero probabilities
+  return(Entropy(hist_vals, method = "ML"))
+}
+
+entropy_ttest &lt;- function(real_folder, synthetic_folder) {
+  real_files &lt;- list.files(real_folder, full.names = TRUE)
+  synthetic_files &lt;- list.files(synthetic_folder, full.names = TRUE)
+  
+  if (length(real_files) != length(synthetic_files)) {
+    stop("Mismatch in dataset sizes")
+  }
+  
+  real_rasters &lt;- lapply(real_files, raster::stack)
+  synthetic_rasters &lt;- lapply(synthetic_files, raster::stack)
+  
+  num_bands &lt;- nlayers(real_rasters[[1]])
+  entropy_results &lt;- vector("list", num_bands)
+  names(entropy_results) &lt;- paste("Band", 1:num_bands)
+  
+  for (b in 1:num_bands) {
+    entropy_results[[b]] &lt;- list(real = c(), synthetic = c())
+    for (i in seq_along(real_rasters)) {
+      real_band &lt;- real_rasters[[i]][[b]]
+      synthetic_band &lt;- synthetic_rasters[[i]][[b]]
+      
+      real_band &lt;- real_band[real_band != 0]  # Remove zeros
+      synthetic_band &lt;- synthetic_band[synthetic_band != 0]
+      
+      real_entropy &lt;- compute_entropy(real_band)
+      synthetic_entropy &lt;- compute_entropy(synthetic_band)
+      
+      entropy_results[[b]]$real &lt;- c(entropy_results[[b]]$real, real_entropy)
+      entropy_results[[b]]$synthetic &lt;- c(entropy_results[[b]]$synthetic, synthetic_entropy)
+    }
+  }
+  
+  ttest_results &lt;- list()
+  for (b in 1:num_bands) {
+    t_result &lt;- t.test(entropy_results[[b]]$real, entropy_results[[b]]$synthetic)
+    ttest_results[[paste("Band", b)]] &lt;- list(t_stat = t_result$statistic, p_value = t_result$p.value)
+    cat(sprintf("Band %d - t-statistic: %.4f, p-value: %.4f\n", b, t_result$statistic, t_result$p.value))
+  }
+  
+  for (b in 1:num_bands) {
+    entropy_df &lt;- data.frame(
+      Entropy = c(entropy_results[[b]]$real, entropy_results[[b]]$synthetic),
+      Type = rep(c("Real", "Synthetic"), each = length(entropy_results[[b]]$real))
+    )
+    
+    ggplot(entropy_df, aes(x = Entropy, fill = Type)) +
+      geom_histogram(alpha = 0.5, position = "identity", bins = 30) +
+      labs(title = paste("Band", b, "Entropy Histogram"), x = "Entropy", y = "Frequency") +
+      theme_minimal() +
+      theme(legend.position = "top")
+  }
+  
+  for (b in 1:num_bands) {
+    entropy_df &lt;- data.frame(
+      Entropy = c(entropy_results[[b]]$real, entropy_results[[b]]$synthetic),
+      Type = rep(c("Real", "Synthetic"), each = length(entropy_results[[b]]$real))
+    )
+    
+    ggplot(entropy_df, aes(x = Type, y = Entropy, fill = Type)) +
+      geom_boxplot() +
+      labs(title = paste("Band", b, "Entropy Boxplot"), y = "Entropy") +
+      theme_minimal()
+  }
+  
+  return(ttest_results)
+}</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="code-output" class="level2">
+<h2 class="anchored" data-anchor-id="code-output">Code Output</h2>
+<p><img src="images/entropy.png" class="img-fluid"></p>
+<pre class="code"><code>Entropy T-tests:
+Band 1 - t-statistic: -9.7605, p-value: 0.0000
+Band 2 - t-statistic: -11.8979, p-value: 0.0000
+Band 3 - t-statistic: -15.6903, p-value: 0.0000
+Band 4 - t-statistic: -6.6893, p-value: 0.0000</code></pre>
 </section>
 <section id="external-links" class="level2">
 <h2 class="anchored" data-anchor-id="external-links">External links</h2>
@@ -192,7 +326,6 @@ ul.task-list li input[type="checkbox"] {
 <iframe width="900" height="700" src="https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool" title="Webpage example"></iframe>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
